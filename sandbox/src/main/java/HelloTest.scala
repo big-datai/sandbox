@@ -17,7 +17,7 @@ class HelloTest {
   val sc=new SparkContext(conf)
   val sqlContext: SQLContext = new SQLContext(sc)
 
-  val d:DataFrame = sqlContext.read.parquet("s3n://AKIAJ5T3KGPTL2377SJQ:DOjTF2MC6jvHjXn4a9CsA15KfUpHhWubR+xNv7Xm@z-aegis-data-stage-5127cfa2b3f74e93a1f9baa30d72a7f5/compacted/*/*")
+  val d:DataFrame = sqlContext.read.parquet("s3n://z-aegis-data-stage-5127cfa2b3f74e93a1f9baa30d72a7f5/compacted/*/*")
   val parquetFile =d.repartition(100)
 
   parquetFile.registerTempTable("compacted")
