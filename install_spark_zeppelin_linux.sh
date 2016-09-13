@@ -22,9 +22,9 @@ echo 'export ZEPPELINHUB_API_ADDRESS="https://www.zeppelinhub.com"'>>zeppelin-en
 echo 'export ZEPPELIN_PORT=9995'>>zeppelin-env.sh
 echo 'export ZEPPELINHUB_API_TOKEN="'"1f37d450-c78a-4a4f-ab75-1501f47bc246"'"'>>zeppelin-env.sh
 
-#sed -i  "s|#/\*\* = authc|/\*\* = authc|" shiro.ini
-#sed -i "s|/\*\* = anon|#/\*\* = anon|" shiro.ini
-#sed -i "s|admin = password1|admin = Nugoi%8yg6#ujk9@|" shiro.ini
+sed -i  "s|#/\*\* = authc|/\*\* = authc|" shiro.ini
+sed -i "s|/\*\* = anon|#/\*\* = anon|" shiro.ini
+sed -i "s|admin = password1|admin = Nugoi%8yg6#ujk9@|" shiro.ini
 cd ../bin/
 ./zeppelin-daemon.sh restart
 
