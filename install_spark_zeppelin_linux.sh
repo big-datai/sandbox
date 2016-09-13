@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#updating your OS system
+
+sudo yum update -y
+sudo apt-get update -y
 wget http://d3kbcqa49mib13.cloudfront.net/spark-2.0.0-bin-hadoop2.7.tgz
 tar -zxvf spark-2.0.0-bin-hadoop2.7.tgz
 mv spark-2.0.0-bin-hadoop2.7 spark
