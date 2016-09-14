@@ -39,9 +39,9 @@ cd $SPARK_HOME/sbin
 ./start-slave.sh $SPARK_MASTER
 #./start-slave.sh spark://localhost:7077
 
-echo 'export SPARK_HOME=$(pwd)/spark/'>> ~/.bashrc
-echo 'export PATH=$SPARK_HOME/bin:$PATH'>> ~/.bashrc
-echo 'export MASTER=spark://$(hostname):7077'>>~/.bashrc
+echo 'export SPARK_HOME='$(pwd)'/spark/'>> ~/.bashrc
+echo 'export PATH='$SPARK_HOME'/bin:'$PATH''>> ~/.bashrc
+echo 'export MASTER=spark://'$(hostname)':7077'>>~/.bashrc
 
 
 
