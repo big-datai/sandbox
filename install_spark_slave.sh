@@ -37,13 +37,13 @@ export PATH=$SPARK_HOME/bin:$PATH
 #for example
 export MASTER_IP=192.168.179.160
 #Add system env to you shell 
-echo 'export SPARK_HOME=$(pwd)/spark'>>.bashrc
+echo 'export SPARK_HOME='$(pwd)'/spark'>>.bashrc
 echo 'export PATH=$SPARK_HOME/bin:$PATH'>>.bashrc
-echo 'export $MASTER_IP'>>.bashrc
+echo 'export MASTER_IP='$MASTER_IP>>.bashrc
 
 #Here you need to allow your firewall all inner network connections
 #use ufw for iptables managment
-sudo iptables -F
+#sudo iptables -F
 sudo ufw status numbered
 sudo ufw enable
 sudo ufw status numbered
@@ -56,7 +56,9 @@ sudo ufw allow from 192.168.0.0/16 to any
 
 # if you want to be more strict do for each specific ip tha you want to include in the network
 sudo ufw allow from "ip master" to any
+sudo ufw allow from "public ip master" to any
 sudo ufw allow from "ip slave 1" to any
+sudo ufw allow from "public ip slave 1" to any
 
 sudo ufw allow 80
 sudo ufw allow 443
@@ -69,15 +71,16 @@ sudo apt-get install ganglia-monitor -y
 sudo cp -a ~/sandbox/gmond.conf /etc/ganglia/
 sudo service ganglia-monitor restart
 
-#add start slave script to cron
+#add start slave script to cron - if you want your slave start when servers are up
 #sudo crontab -e
-echo 'SPARK_HOME='$(pwd)'/spark'>>/etc/crontab
-echo 'PATH='$PATH>>/etc/crontab
-echo  'MASTER_IP='$MASTER_IP>>/etc/crontab
-echo '@reboot    '$(whoami)'    $SPARK_HOME/sbin/start-slave.sh spark://$MASTER_IP:7077' >>/etc/crontab
+sudo echo 'SPARK_HOME='$(pwd)'/spark'>>/etc/crontab
+sudo echo 'PATH='$PATH>>/etc/crontab
+sudo echo 'MASTER_IP='$MASTER_IP>>/etc/crontab
+sudo echo '@reboot    '$(whoami)'    $SPARK_HOME/sbin/start-slave.sh spark://$MASTER_IP:7077' >>/etc/crontab
 
-
-
+# if you are not running spark on this machine turn of ganglia and restart gmeta on master machine
+#sudo service ganglia-monitor stop
+# or instead add rule in crone that turn on/of ganglia if spark is running
 
 
 
