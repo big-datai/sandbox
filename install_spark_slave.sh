@@ -11,6 +11,12 @@ sudo apt-get install rpm -y
 sudo apt-get install ufw -y
 sudo apt-get install curl -y
 sudo apt-get install wget -y
+sudo apt-get install git -y
+sudo apt-get install vim -y
+sudo apt-get install cron -y
+
+
+git clone https://github.com/2dmitrypavlov/sandbox.git
 #make sure linux is running jdk8 and all env are set...
 
 echo "Installing java"
@@ -33,6 +39,7 @@ export MASTER_IP=192.168.179.160
 #Add system env to you shell 
 echo 'export SPARK_HOME=$(pwd)/spark'>>.bashrc
 echo 'export PATH=$SPARK_HOME/bin:$PATH'>>.bashrc
+echo 'export $MASTER_IP'>>.bashrc
 
 #Here you need to allow your firewall all inner network connections
 #use ufw for iptables managment
@@ -57,7 +64,17 @@ sudo ufw allow 443
 #Allow connections to a specific network interface
 #sudo ufw allow in on eth1
 
+# installing ganglia deamon 
+sudo apt-get install ganglia-monitor -y
+sudo cp -a ~/sandbox/gmond.conf /etc/ganglia/
+sudo service ganglia-monitor restart
 
+#add start slave script to cron
+#sudo crontab -e
+echo 'SPARK_HOME='$(pwd)'/spark'>>/etc/crontab
+echo 'PATH='$PATH>>/etc/crontab
+echo  'MASTER_IP='$MASTER_IP>>/etc/crontab
+echo '@reboot    '$(whoami)'    $SPARK_HOME/sbin/start-slave.sh spark://$MASTER_IP:7077' >>/etc/crontab
 
 
 
