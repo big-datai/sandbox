@@ -21,8 +21,8 @@ git clone https://github.com/2dmitrypavlov/sandbox.git
 
 echo "Installing java"
 
-curl -v -j -k -L -H "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u102-b14/jdk-8u102-linux-x64.rpm > jdk-8u102-linux-x64.rpm
-rpm -Uvh jdk-8u102-linux-x64.rpm
+#curl -v -j -k -L -H "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u102-b14/jdk-8u102-linux-x64.rpm > jdk-8u102-linux-x64.rpm
+#rpm -Uvh jdk-8u102-linux-x64.rpm
 # If fails install from ther repo
 sudo apt-cache search jdk
 #choose openjdk-8-jdk
@@ -35,7 +35,7 @@ mv spark-2.0.0-bin-hadoop2.7 spark
 export SPARK_HOME=$(pwd)/spark
 export PATH=$SPARK_HOME/bin:$PATH
 #for example
-export MASTER_IP=192.168.179.160
+export MASTER_IP=" master inner ip"
 #Add system env to you shell 
 echo 'export SPARK_HOME='$(pwd)'/spark'>>.bashrc
 echo 'export PATH=$SPARK_HOME/bin:$PATH'>>.bashrc
