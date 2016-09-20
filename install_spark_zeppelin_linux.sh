@@ -9,7 +9,8 @@ tar -zxvf spark-2.0.0-bin-hadoop2.7.tgz
 mv spark-2.0.0-bin-hadoop2.7 spark
 export SPARK_HOME=$(pwd)/spark
 export PATH=$SPARK_HOME/bin:$PATH
-export SPARK_MASTER=spark://$(hostname):7077
+export MASTER_IP=$(hostname -i)
+export SPARK_MASTER=spark://$(hostname -i):7077
 
 curl -v -j -k -L -H "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u102-b14/jdk-8u102-linux-x64.rpm > jdk-8u102-linux-x64.rpm
 rpm -Uvh jdk-8u102-linux-x64.rpm
@@ -42,7 +43,7 @@ cd $SPARK_HOME/sbin
 echo 'export SPARK_HOME='$(pwd)'/spark/'>> ~/.bashrc
 echo 'export PATH='$SPARK_HOME'/bin:'$PATH''>> ~/.bashrc
 echo 'export MASTER=spark://'$(hostname)':7077'>>~/.bashrc
-
+echo 'export MASTER_IP='$MASTER_IP>>~/.bashrc
 
 
 
