@@ -71,6 +71,8 @@ sudo ufw allow from 192.168.179.160 to any
 sudo ufw allow from 192.168.199.45 to any
 sudo ufw allow from 192.168.195.56 to any
 sudo ufw allow from 192.168.213.220 to any
+sudo ufw allow from 192.168.200.67 to any
+sudo ufw allow from 192.168.215.200 to any
 
 #Allow connections to a specific network interface
 #sudo ufw allow in on eth1
