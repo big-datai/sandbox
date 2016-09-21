@@ -9,7 +9,7 @@ vim /etc/network/interfaces
 # To add a private IP address:
 auto eth0:0
 iface eth0:0 inet static
-    address 192.168.200.67
+    address 192.168.x.x
     netmask 255.255.128.0
 
 ifup eth0:0
@@ -26,6 +26,7 @@ sudo apt-get install wget -y
 sudo apt-get install git -y
 sudo apt-get install vim -y
 sudo apt-get install cron -y
+sudo apt-get install htop -y
 # install anacona follow the instructions.
 wget https://repo.continuum.io/archive/Anaconda2-4.1.1-Linux-x86_64.sh
 bash Anaconda2-4.1.1-Linux-x86_64.sh 
