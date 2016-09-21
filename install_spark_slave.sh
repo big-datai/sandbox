@@ -2,6 +2,8 @@
 #This script is for installation of spark slave on a linux - ubuntu
 #It updates system install utils, jdk 8 and spark 2.0
 
+# MUST - set up innner etch0:0 ips to the server
+# MUST - run ufw allow script
 cd ~/
 echo "Utilities for linux:"
 
@@ -15,7 +17,7 @@ sudo apt-get install git -y
 sudo apt-get install vim -y
 sudo apt-get install cron -y
 
-
+export MASTER_IP=192.168.179.160
 git clone https://github.com/2dmitrypavlov/sandbox.git
 #make sure linux is running jdk8 and all env are set...
 
