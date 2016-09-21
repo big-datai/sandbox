@@ -38,9 +38,9 @@ echo "Installing java"
 #curl -v -j -k -L -H "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u102-b14/jdk-8u102-linux-x64.rpm > jdk-8u102-linux-x64.rpm
 #rpm -Uvh jdk-8u102-linux-x64.rpm
 # If fails install from ther repo
-sudo apt-cache search jdk
+#sudo apt-cache search jdk
 #choose openjdk-8-jdk
-sudo apt-get install openjdk-8-jdk -y
+sudo apt-get install oracle-java8-installer -y
 
 
 wget http://d3kbcqa49mib13.cloudfront.net/spark-2.0.0-bin-hadoop2.7.tgz
