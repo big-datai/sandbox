@@ -4,8 +4,8 @@
 
 # MUST - set up innner etch0:0 ips to the server
 # MUST - run ufw allow script
-vim /etc/network/interfaces
 
+vim /etc/network/interfaces
 # To add a private IP address:
 auto eth0:0
 iface eth0:0 inet static
@@ -27,7 +27,7 @@ sudo apt-get install git -y
 sudo apt-get install vim -y
 sudo apt-get install cron -y
 
-export MASTER_IP=192.168.179.160
+
 git clone https://github.com/2dmitrypavlov/sandbox.git
 #make sure linux is running jdk8 and all env are set...
 
@@ -46,8 +46,7 @@ tar -zxvf spark-2.0.0-bin-hadoop2.7.tgz
 mv spark-2.0.0-bin-hadoop2.7 spark
 export SPARK_HOME=$(pwd)/spark
 export PATH=$SPARK_HOME/bin:$PATH
-#for example
-export MASTER_IP=" master inner ip"
+export MASTER_IP=192.168.179.160
 #Add system env to you shell 
 echo 'export SPARK_HOME='$(pwd)'/spark'>>.bashrc
 echo 'export PATH=$SPARK_HOME/bin:$PATH'>>.bashrc
@@ -73,10 +72,6 @@ sudo ufw allow from 192.168.199.45 to any
 sudo ufw allow from 192.168.195.56 to any
 sudo ufw allow from 192.168.213.220 to any
 
-
-sudo ufw allow 80
-sudo ufw allow 443
-
 #Allow connections to a specific network interface
 #sudo ufw allow in on eth1
 
@@ -95,16 +90,4 @@ sudo echo '@reboot    '$(whoami)'    $SPARK_HOME/sbin/start-slave.sh spark://$MA
 # if you are not running spark on this machine turn of ganglia and restart gmeta on master machine
 #sudo service ganglia-monitor stop
 # or instead add rule in crone that turn on/of ganglia if spark is running
-
-
-
-
-
-
-
-
-
-
-
-
 
