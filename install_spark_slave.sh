@@ -26,7 +26,9 @@ sudo apt-get install wget -y
 sudo apt-get install git -y
 sudo apt-get install vim -y
 sudo apt-get install cron -y
-
+# install anacona follow the instructions.
+wget https://repo.continuum.io/archive/Anaconda2-4.1.1-Linux-x86_64.sh
+bash Anaconda2-4.1.1-Linux-x86_64.sh 
 
 git clone https://github.com/2dmitrypavlov/sandbox.git
 #make sure linux is running jdk8 and all env are set...
