@@ -4,6 +4,16 @@
 
 # MUST - set up innner etch0:0 ips to the server
 # MUST - run ufw allow script
+vim /etc/network/interfaces
+
+# To add a private IP address:
+auto eth0:0
+iface eth0:0 inet static
+    address 192.168.200.67
+    netmask 255.255.128.0
+
+ifup eth0:0
+
 cd ~/
 echo "Utilities for linux:"
 
@@ -56,11 +66,13 @@ sudo ufw allow 22
 # for example this one allows all subnetwork of kind 192.168.0.0 - 192.168.255.255
 sudo ufw allow from 192.168.0.0/16 to any
 
-# if you want to be more strict do for each specific ip tha you want to include in the network
-sudo ufw allow from "ip master" to any
-sudo ufw allow from "public ip master" to any
-sudo ufw allow from "ip slave 1" to any
-sudo ufw allow from "public ip slave 1" to any
+# list of all servers in spark cluster must run on each machine
+
+sudo ufw allow from 192.168.179.160 to any
+sudo ufw allow from 192.168.199.45 to any
+sudo ufw allow from 192.168.195.56 to any
+sudo ufw allow from 192.168.213.220 to any
+
 
 sudo ufw allow 80
 sudo ufw allow 443
