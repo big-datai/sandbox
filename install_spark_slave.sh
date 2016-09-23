@@ -56,6 +56,7 @@ echo 'export PATH=$SPARK_HOME/bin:$PATH'>>.bashrc
 echo 'export MASTER_IP='$MASTER_IP>>.bashrc
 
 #Here you need to allow your firewall all inner network connections
+#---------------------------------- FIREWALL START--------------------------------------
 #use ufw for iptables managment
 #sudo iptables -F
 sudo ufw status numbered
@@ -67,18 +68,17 @@ sudo ufw allow 22
 
 # for example this one allows all subnetwork of kind 192.168.0.0 - 192.168.255.255
 sudo ufw allow from 192.168.0.0/16 to any
-
 # list of all servers in spark cluster must run on each machine
-
-sudo ufw allow from 192.168.179.160 to any
-sudo ufw allow from 192.168.199.45 to any
-sudo ufw allow from 192.168.195.56 to any
-sudo ufw allow from 192.168.213.220 to any
-sudo ufw allow from 192.168.200.67 to any
-sudo ufw allow from 192.168.215.200 to any
+sudo ufw allow from 192.168.0.0/16 to any
+sudo ufw allow from 192.168.0.0/16 to any
+sudo ufw allow from 192.168.0.0/16 to any
+sudo ufw allow from 192.168.0.0/16 to any
+sudo ufw allow from 192.168.0.0/16 to any
+sudo ufw allow from 192.168.0.0/16 to any
 
 #Allow connections to a specific network interface
 #sudo ufw allow in on eth1
+#---------------------------------- FIREWALL END --------------------------------------
 
 # installing ganglia deamon 
 sudo apt-get install ganglia-monitor -y
