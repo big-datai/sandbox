@@ -21,7 +21,7 @@ tar -zxvf zeppelin-0.6.1-bin-all.tgz
 mv zeppelin-0.6.1-bin-all zeppelin
 cd zeppelin/conf
 cp zeppelin-env.sh.template zeppelin-env.sh
-echo 'export MASTER=spark://'$(hostname)':7077'>>zeppelin-env.sh
+echo 'export MASTER=spark://'$(hostname -i)':7077'>>zeppelin-env.sh
 echo 'export ZEPPELIN_NOTEBOOK_STORAGE="org.apache.zeppelin.notebook.repo.VFSNotebookRepo, org.apache.zeppelin.notebook.repo.zeppelinhub.ZeppelinHubRepo"'>>zeppelin-env.sh
 echo 'export ZEPPELINHUB_API_ADDRESS="https://www.zeppelinhub.com"'>>zeppelin-env.sh
 echo 'export ZEPPELIN_PORT=9995'>>zeppelin-env.sh
