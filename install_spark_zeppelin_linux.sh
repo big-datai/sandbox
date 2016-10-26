@@ -11,7 +11,7 @@ export SPARK_HOME=$(pwd)/spark
 export PATH=$SPARK_HOME/bin:$PATH
 export MASTER_IP=$(hostname -i)
 export SPARK_MASTER=spark://$(hostname -i):7077
-sudo apt-get install rpm
+sudo apt-get install rpm -y
 curl -v -j -k -L -H "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u102-b14/jdk-8u102-linux-x64.rpm > jdk-8u102-linux-x64.rpm
 rpm -Uvh jdk-8u102-linux-x64.rpm
 
