@@ -1,3 +1,4 @@
+#!/bin/bash
 #install R for spark
 
 #to install R version do next:
