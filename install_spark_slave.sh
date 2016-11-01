@@ -5,14 +5,14 @@
 # MUST - set up innner etch0:0 ips to the server
 # MUST - run ufw allow script
 
-vim /etc/network/interfaces
+sudo vim /etc/network/interfaces
 # To add a private IP address:
 auto eth0:0
 iface eth0:0 inet static
-    address 192.168.x.x
+    address 192.168.218.83
     netmask 255.255.128.0
 
-ifup eth0:0
+sudo ifup eth0:0
 
 cd ~/
 echo "Utilities for linux:"
@@ -49,7 +49,7 @@ tar -zxvf spark-2.0.1-bin-hadoop2.7.tgz
 mv spark-2.0.1-bin-hadoop2.7 spark
 export SPARK_HOME=$(pwd)/spark
 export PATH=$SPARK_HOME/bin:$PATH
-export MASTER_IP=192.168.179.160
+export MASTER_IP=192.168.131.44
 #Add system env to you shell 
 echo 'export SPARK_HOME='$(pwd)'/spark'>>.bashrc
 echo 'export PATH=$SPARK_HOME/bin:$PATH'>>.bashrc
