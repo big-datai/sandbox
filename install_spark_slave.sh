@@ -69,12 +69,13 @@ sudo ufw allow 22
 # for example this one allows all subnetwork of kind 192.168.0.0 - 192.168.255.255
 sudo ufw allow from 192.168.0.0/16 to any
 # list of all servers in spark cluster must run on each machine
-sudo ufw allow from 192.168.0.0/16 to any
-sudo ufw allow from 192.168.0.0/16 to any
-sudo ufw allow from 192.168.0.0/16 to any
-sudo ufw allow from 192.168.0.0/16 to any
-sudo ufw allow from 192.168.0.0/16 to any
-sudo ufw allow from 192.168.0.0/16 to any
+sudo ufw allow from 192.168.179.160 to any
+sudo ufw allow from 192.168.213.220 to any
+sudo ufw allow from 192.168.200.67 to any
+sudo ufw allow from 192.168.215.200 to any
+sudo ufw allow from 192.168.218.83 to any
+sudo ufw allow from 192.168.131.44 to any
+sudo ufw allow from 192.168.195.19 to any
 
 #Allow connections to a specific network interface
 #sudo ufw allow in on eth1
