@@ -50,9 +50,9 @@ object Stream2Kafka {
     //h3json.coalesce(1000).saveAsTextFile("/Users/dpavlov/Desktop/h3json/", classOf[GzipCodec])
 
 
-    val topic = "shuals"
-    val brokers = "hslave01.dwhpoc.cws.cyren.corp:6667,hslave02.dwhpoc.cws.cyren.corp:6667,hslave03.dwhpoc.cws.cyren.corp:6667"
-
+    val topic = "shuals2"
+    //val brokers = "hslave01.dwhpoc.cws.cyren.corp:6667,hslave02.dwhpoc.cws.cyren.corp:6667,hslave03.dwhpoc.cws.cyren.corp:6667"
+    val brokers="dwh-kafka01.dwh.lab:6667,dwh-kafka02.dwh.lab:6667,dwh-kafka03.dwh.lab:6667"
 
 //    val rdd = sc.parallelize(1 until 10 toList, 5).map {
 //      _.toString
