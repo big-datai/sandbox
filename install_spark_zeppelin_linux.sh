@@ -4,13 +4,14 @@
 
 sudo yum update -y
 sudo apt-get update -y
-wget http://d3kbcqa49mib13.cloudfront.net/spark-2.0.0-bin-hadoop2.7.tgz
-tar -zxvf spark-2.0.0-bin-hadoop2.7.tgz
-mv spark-2.0.0-bin-hadoop2.7 spark
+wget http://d3kbcqa49mib13.cloudfront.net/spark-2.0.1-bin-hadoop2.7.tgz
+tar -zxvf spark-2.0.1-bin-hadoop2.7.tgz
+mv spark-2.0.1-bin-hadoop2.7 spark
 export SPARK_HOME=$(pwd)/spark
 export PATH=$SPARK_HOME/bin:$PATH
 export MASTER_IP=$(hostname -i)
-export SPARK_MASTER=spark://$(hostname -i):7077
+#export SPARK_MASTER=spark://$(hostname -i):7077
+export SPARK_MASTER=spark://192.168.131.44:7077
 sudo apt-get install openjdk-8-jdk
 
 #for ubuntu

@@ -5,14 +5,14 @@
 # MUST - set up innner etch0:0 ips to the server
 # MUST - run ufw allow script
 
-vim /etc/network/interfaces
+sudo vim /etc/network/interfaces
 # To add a private IP address:
 auto eth0:0
 iface eth0:0 inet static
-    address 192.168.x.x
+    address 192.168.218.83
     netmask 255.255.128.0
 
-ifup eth0:0
+sudo ifup eth0:0
 
 cd ~/
 echo "Utilities for linux:"
@@ -28,8 +28,8 @@ sudo apt-get install vim -y
 sudo apt-get install cron -y
 sudo apt-get install htop -y
 # install anacona follow the instructions.
-wget https://repo.continuum.io/archive/Anaconda2-4.1.1-Linux-x86_64.sh
-bash Anaconda2-4.1.1-Linux-x86_64.sh 
+wget https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh
+bash Anaconda3-4.2.0-Linux-x86_64.sh 
 
 git clone https://github.com/2dmitrypavlov/sandbox.git
 #make sure linux is running jdk8 and all env are set...
@@ -44,12 +44,12 @@ echo "Installing java"
 sudo apt-get install oracle-java8-installer -y
 
 
-wget http://d3kbcqa49mib13.cloudfront.net/spark-2.0.0-bin-hadoop2.7.tgz
-tar -zxvf spark-2.0.0-bin-hadoop2.7.tgz
-mv spark-2.0.0-bin-hadoop2.7 spark
+wget http://d3kbcqa49mib13.cloudfront.net/spark-2.0.1-bin-hadoop2.7.tgz
+tar -zxvf spark-2.0.1-bin-hadoop2.7.tgz
+mv spark-2.0.1-bin-hadoop2.7 spark
 export SPARK_HOME=$(pwd)/spark
 export PATH=$SPARK_HOME/bin:$PATH
-export MASTER_IP=192.168.179.160
+export MASTER_IP=192.168.131.44
 #Add system env to you shell 
 echo 'export SPARK_HOME='$(pwd)'/spark'>>.bashrc
 echo 'export PATH=$SPARK_HOME/bin:$PATH'>>.bashrc
@@ -69,12 +69,13 @@ sudo ufw allow 22
 # for example this one allows all subnetwork of kind 192.168.0.0 - 192.168.255.255
 sudo ufw allow from 192.168.0.0/16 to any
 # list of all servers in spark cluster must run on each machine
-sudo ufw allow from 192.168.0.0/16 to any
-sudo ufw allow from 192.168.0.0/16 to any
-sudo ufw allow from 192.168.0.0/16 to any
-sudo ufw allow from 192.168.0.0/16 to any
-sudo ufw allow from 192.168.0.0/16 to any
-sudo ufw allow from 192.168.0.0/16 to any
+sudo ufw allow from 192.168.179.160 to any
+sudo ufw allow from 192.168.213.220 to any
+sudo ufw allow from 192.168.200.67 to any
+sudo ufw allow from 192.168.215.200 to any
+sudo ufw allow from 192.168.218.83 to any
+sudo ufw allow from 192.168.131.44 to any
+sudo ufw allow from 192.168.195.19 to any
 
 #Allow connections to a specific network interface
 #sudo ufw allow in on eth1
