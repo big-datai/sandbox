@@ -25,7 +25,7 @@ dependencies {
     compile 'org.scalactic:scalactic_2.11:3.0.0'
     compile 'org.scalatest:scalatest_2.11:3.0.0'
 }
-
+/*
 shadowJar {
     zip64 = true
     exclude 'LICENSE'
@@ -39,3 +39,5 @@ shadowJar {
                 'Main-Class': ''
     }
 }
+
+*/
