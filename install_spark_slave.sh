@@ -17,9 +17,10 @@ sudo ifup eth0:0
 cd ~/
 echo "Utilities for linux:"
 
+
 sudo apt-get clean
 sudo apt-get update -y
-sudo apt-get install rpm -y
+#sudo apt-get install rpm -y
 sudo apt-get install ufw -y
 sudo apt-get install curl -y
 sudo apt-get install wget -y
@@ -41,7 +42,8 @@ echo "Installing java"
 # If fails install from ther repo
 #sudo apt-cache search jdk
 #choose openjdk-8-jdk
-sudo apt-get install oracle-java8-installer -y
+#sudo apt-get install oracle-java8-installer -y
+sudo apt-get install openjdk-8-jdk
 
 
 wget http://d3kbcqa49mib13.cloudfront.net/spark-2.0.1-bin-hadoop2.7.tgz
@@ -69,6 +71,8 @@ sudo ufw allow 22
 # for example this one allows all subnetwork of kind 192.168.0.0 - 192.168.255.255
 sudo ufw allow from 192.168.0.0/16 to any
 # list of all servers in spark cluster must run on each machine
+sudo ufw allow from 192.168.199.45 to any
+sudo ufw allow from 192.168.195.56 to any 
 sudo ufw allow from 192.168.179.160 to any
 sudo ufw allow from 192.168.213.220 to any
 sudo ufw allow from 192.168.200.67 to any
@@ -76,6 +80,13 @@ sudo ufw allow from 192.168.215.200 to any
 sudo ufw allow from 192.168.218.83 to any
 sudo ufw allow from 192.168.131.44 to any
 sudo ufw allow from 192.168.195.19 to any
+sudo ufw allow from 192.168.196.245 to any
+sudo ufw allow from 192.168.205.11 to any
+sudo ufw allow from 192.168.181.122 to any
+sudo ufw allow from 192.168.141.166 to any
+
+
+
 
 #Allow connections to a specific network interface
 #sudo ufw allow in on eth1
@@ -88,10 +99,11 @@ sudo service ganglia-monitor restart
 
 #add start slave script to cron - if you want your slave start when servers are up
 #sudo crontab -e
-sudo echo 'SPARK_HOME='$(pwd)'/spark'>>/etc/crontab
-sudo echo 'PATH='$PATH>>/etc/crontab
-sudo echo 'MASTER_IP='$MASTER_IP>>/etc/crontab
-sudo echo '@reboot    '$(whoami)'    $SPARK_HOME/sbin/start-slave.sh spark://$MASTER_IP:7077' >>/etc/crontab
+#sudo echo 'SPARK_HOME='$(pwd)'/spark'>>/etc/crontab
+#sudo echo 'PATH='$PATH>>/etc/crontab
+#sudo echo 'MASTER_IP='$MASTER_IP>>/etc/crontab
+#sudo echo '@reboot    '$(whoami)'    $SPARK_HOME/sbin/start-slave.sh spark://$MASTER_IP:7077' >>/etc/crontab
+@reboot         rifiniti   /home/rifiniti/spark/sbin/start-slave.sh spark://192.168.131.44:7077
 
 # if you are not running spark on this machine turn of ganglia and restart gmeta on master machine
 #sudo service ganglia-monitor stop
