@@ -4,6 +4,7 @@
 
 # MUST - set up innner etch0:0 ips to the server
 # MUST - run ufw allow script
+do-release-upgrade
 
 sudo vim /etc/network/interfaces
 # To add a private IP address:
