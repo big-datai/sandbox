@@ -54,9 +54,9 @@ export SPARK_HOME=$(pwd)/spark
 export PATH=$SPARK_HOME/bin:$PATH
 export MASTER_IP=192.168.131.44
 #Add system env to you shell 
-echo 'export SPARK_HOME='$(pwd)'/spark'>>.bashrc
-echo 'export PATH=$SPARK_HOME/bin:$PATH'>>.bashrc
-echo 'export MASTER_IP='$MASTER_IP>>.bashrc
+echo 'export SPARK_HOME='$(pwd)'/spark'>>.zshrc
+echo 'export PATH=$SPARK_HOME/bin:$PATH'>>.zshrc
+echo 'export MASTER_IP='$MASTER_IP>>.zshrc
 
 #Here you need to allow your firewall all inner network connections
 #---------------------------------- FIREWALL START--------------------------------------
@@ -86,7 +86,8 @@ sudo ufw allow from 192.168.205.11 to any
 sudo ufw allow from 192.168.181.122 to any
 sudo ufw allow from 192.168.141.166 to any
 
-
+wget https://repo.continuum.io/archive/Anaconda2-4.2.0-Linux-x86_64.sh
+bash Anaconda2-4.2.0-Linux-x86_64.sh 
 
 
 #Allow connections to a specific network interface
@@ -104,7 +105,7 @@ sudo service ganglia-monitor restart
 #sudo echo 'PATH='$PATH>>/etc/crontab
 #sudo echo 'MASTER_IP='$MASTER_IP>>/etc/crontab
 #sudo echo '@reboot    '$(whoami)'    $SPARK_HOME/sbin/start-slave.sh spark://$MASTER_IP:7077' >>/etc/crontab
-@reboot         rifiniti   /home/rifiniti/spark/sbin/start-slave.sh spark://192.168.131.44:7077
+@reboot         dmitry   /home/dmitry/spark/sbin/start-slave.sh spark://192.168.131.44:7077
 
 # if you are not running spark on this machine turn of ganglia and restart gmeta on master machine
 #sudo service ganglia-monitor stop
