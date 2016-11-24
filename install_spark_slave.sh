@@ -31,9 +31,9 @@ sudo apt-get install cron -y
 sudo apt-get install htop -y
 # install anacona follow the instructions.
 #wget https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh
-https://repo.continuum.io/archive/Anaconda2-4.2.0-Linux-x86_64.sh
+#https://repo.continuum.io/archive/Anaconda2-4.2.0-Linux-x86_64.sh
 #bash Anaconda3-4.2.0-Linux-x86_64.sh 
-bash Anaconda2-4.2.0-Linux-x86_64.sh 
+#bash Anaconda2-4.2.0-Linux-x86_64.sh 
 git clone https://github.com/2dmitrypavlov/sandbox.git
 #make sure linux is running jdk8 and all env are set...
 
@@ -85,11 +85,20 @@ sudo ufw allow from 192.168.195.19 to any
 sudo ufw allow from 192.168.196.245 to any
 sudo ufw allow from 192.168.205.11 to any
 sudo ufw allow from 192.168.181.122 to any
-sudo ufw allow from 192.168.141.166 to any
+sudo ufw allow from 192.168.141.166to any
+sudo ufw allow from 192.168.134.137 to any
+sudo ufw allow from 192.168.181.122 to any
+
 
 wget https://repo.continuum.io/archive/Anaconda2-4.2.0-Linux-x86_64.sh
 bash Anaconda2-4.2.0-Linux-x86_64.sh 
-
+sudo apt-get install python-setuptools python-dev build-essential -y
+sudo easy_install pip 
+sudo pip install numpy
+sudo pip install scipy
+sudo pip install scikit-learn
+sudo pip install pandas
+sudo pip install matplotlib
 
 #Allow connections to a specific network interface
 #sudo ufw allow in on eth1
