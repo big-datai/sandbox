@@ -85,9 +85,10 @@ sudo ufw allow from 192.168.195.19 to any
 sudo ufw allow from 192.168.196.245 to any
 sudo ufw allow from 192.168.205.11 to any
 sudo ufw allow from 192.168.181.122 to any
-sudo ufw allow from 192.168.141.166to any
+sudo ufw allow from 192.168.141.166 to any
 sudo ufw allow from 192.168.134.137 to any
 sudo ufw allow from 192.168.181.122 to any
+sudo ufw allow from 192.168.215.200 to any
 
 
 wget https://repo.continuum.io/archive/Anaconda2-4.2.0-Linux-x86_64.sh
