@@ -6,21 +6,27 @@ sudo yum install java-1.8.0-openjdk-devel.x86_64 -y
 yum install wget curl -y
 yum install vim -y
 sudo yum install git -y
+sudo yum install htop -y
+sudo yum install zsh -y
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# add this to /etc/hosts ip-192-168-18-127 -> change to machine dns
+192.168.18.178   localhost ip-192-168-18-178
 
 wget http://d3kbcqa49mib13.cloudfront.net/spark-2.0.1-bin-hadoop2.7.tgz
 tar -zxvf spark-2.0.1-bin-hadoop2.7.tgz
 mv spark-2.0.1-bin-hadoop2.7 spark
 export SPARK_HOME=$(pwd)/spark
 export PATH=$SPARK_HOME/bin:$PATH
-export MASTER_IP=192.168.18.127
+export MASTER_IP=192.168.18.178
 #export SPARK_MASTER=spark://$(hostname -i):7077
-export SPARK_MASTER=spark://192.168.18.127:7077
+export SPARK_MASTER=spark://192.168.18.178:7077
 
-# ADD THIS TO YOUR .BASHRC FILE
+# ADD THIS TO YOUR .zshrc FILE
 export SPARK_HOME=/root/spark
 export JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk.x86_64
 export PYTHONPATH=/root/spark/python/lib/py4j-0.10.3-src.zip:/root/spark/python
-source .bashrc
+source .zshrc
 
 #Load dependancies
 wget http://central.maven.org/maven2/com/amazonaws/aws-java-sdk/1.7.4/aws-java-sdk-1.7.4.jar
@@ -41,13 +47,7 @@ sudo pip install scikit-learn
 sudo pip install pandas
 sudo pip install matplotlib
 
-# add this to /etc/hosts ip-192-168-18-127 -> change to machine dns
-192.168.18.127  master localhost ip-192-168-18-127 
-192.168.18.97   slave1
 
-#on slave do 
-192.168.18.97   slave1	localhost	ip-192-168-18-97
-192.168.18.127  master
 
 #configure jupyter by this tutorial 
 #http://jupyter-notebook.readthedocs.io/en/latest/public_server.html
