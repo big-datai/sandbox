@@ -53,11 +53,11 @@ tar -zxvf spark-2.0.1-bin-hadoop2.7.tgz
 mv spark-2.0.1-bin-hadoop2.7 spark
 export SPARK_HOME=$(pwd)/spark
 export PATH=$SPARK_HOME/bin:$PATH
-export MASTER_IP=192.168.131.44
+export MASTER_IP=192.168.217.182
 #Add system env to you shell 
-echo 'export SPARK_HOME='$(pwd)'/spark'>>.zshrc
-echo 'export PATH=$SPARK_HOME/bin:$PATH'>>.zshrc
-echo 'export MASTER_IP='$MASTER_IP>>.zshrc
+echo 'export SPARK_HOME='$(pwd)'/spark'>>.bashrc
+echo 'export PATH=$SPARK_HOME/bin:$PATH'>>.bashrc
+echo 'export MASTER_IP='$MASTER_IP>>.bashrc
 
 #Here you need to allow your firewall all inner network connections
 #---------------------------------- FIREWALL START--------------------------------------
