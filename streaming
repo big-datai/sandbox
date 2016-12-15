@@ -1,0 +1,9 @@
+import org.apache.spark._
+import org.apache.spark.streaming._
+import org.apache.spark.streaming.StreamingContext._ // not necessary since Spark 1.3
+
+val ssc = new StreamingContext(spark.sparkContext, Seconds(2))
+val data=ssc.textFileStream("/Users/dmitry/data/")
+
+data.foreachRDD{ rdd=> val dd=spark.read.text("spark_log.log").count();  print("spark:  ");  println(dd); print(" rdd " ); println(rdd.count)}
+ssc.start()
