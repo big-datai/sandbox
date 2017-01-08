@@ -36,7 +36,7 @@ wget http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.39/mysql-con
 wget https://github.com/s3tools/s3cmd/archive/master.zip
 wget http://central.maven.org/maven2/com/databricks/spark-redshift_2.11/2.0.1/spark-redshift_2.11-2.0.1.jar
 wget http://central.maven.org/maven2/org/postgresql/postgresql/9.4-1201-jdbc41/postgresql-9.4-1201-jdbc41.jar
-wget http://central.maven.org/maven2/com/hynnet/oracle-driver-ojdbc/12.1.0.2/oracle-driver-ojdbc-12.1.0.2.jar
+
 
 #Install anaconda
 wget https://repo.continuum.io/archive/Anaconda2-4.2.0-Linux-x86_64.sh
