@@ -29,7 +29,7 @@ object RawStream {
 
     val ssc = new StreamingContext(spark.sparkContext, Seconds(10))
     val topicsSet = "ErezTest".split(",").toSet
-    val kafkaParams = Map[String, String]("metadata.broker.list" -> "hslave01.dwhpoc.cws.cyren.corp:6667,hslave02.dwhpoc.cws.cyren.corp:6667,hslave03.dwhpoc.cws.cyren.corp:6667", "auto.offset.reset" -> "smallest")
+    val kafkaParams = Map[String, String]("metadata.broker.list" -> "local:6667,local:6667,local:6667", "auto.offset.reset" -> "smallest")
 
     val input = KafkaUtils.createDirectStream[String, Array[Byte], StringDecoder, DefaultDecoder](ssc, kafkaParams, topicsSet)
 

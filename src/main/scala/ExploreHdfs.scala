@@ -20,7 +20,7 @@ object ExploreHdfs {
     //.master("local-cluster[1,4,3200]")
     //local-cluster[numSlaves, coresPerSlave, memoryPerSlave]
 
-    val parquetFile = spark.read.parquet("hdfs://hslave01.dwhpoc.cws.cyren.corp:8020/tmp/out.parquet")
+    val parquetFile = spark.read.parquet("hdfs://local:8020/tmp/out.parquet")
     //hdfs://localhost:8020/tmp/people.txt
     //transforms timestamp to Date
 
