@@ -20,10 +20,10 @@ repositories {
     }
 }
 
-tasks.withType(ScalaCompile) {
-    scalaCompileOptions.useAnt = false
-    scalaCompileOptions.useCompileDaemon = true
-}
+//tasks.withType(ScalaCompile) {
+//    scalaCompileOptions.useAnt = false
+//    scalaCompileOptions.useCompileDaemon = true
+//}
 dependencies {
     compile name: 'RedshiftJDBC4-1.1.17.1017'
     compile name: 'ojdbc7'
