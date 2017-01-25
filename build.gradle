@@ -1,6 +1,12 @@
 plugins {
   id 'scala'
-  //id 'com.github.johnrengelman.shadow'// version '1.2.3'
+  id 'com.github.johnrengelman.shadow' version '1.2.4'
+}
+task fatJar(type: Jar) {
+    zip64 = true
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }
 
 
@@ -8,24 +14,40 @@ repositories {
   jcenter()
   mavenCentral()
 }
+repositories {
+    flatDir {
+        dirs '/Users/dmitry/jars/'
+    }
+}
 
 tasks.withType(ScalaCompile) {
-  scalaCompileOptions.useAnt = false
-  scalaCompileOptions.useCompileDaemon = true
+    scalaCompileOptions.useAnt = false
+    scalaCompileOptions.useCompileDaemon = true
 }
+dependencies {
+    compile name: 'RedshiftJDBC4-1.1.17.1017'
+    compile name: 'ojdbc7'
+}
+
 
 dependencies {
     //compile  (group: 'org.apache.spark', name: 'spark-streaming-kafka_0-8_2.11:2.0.0')
     compile (group: 'joda-time', name: 'joda-time', version: "2.9.4")
-    compile 'org.apache.spark:spark-core_2.11:2.0.0'
-    compile 'org.apache.spark:spark-streaming-kafka-0-8_2.11:2.0.0'
-    compile 'org.apache.spark:spark-streaming_2.11:2.0.0'
-    compile 'org.apache.spark:spark-sql_2.11:2.0.0'
+    compile 'org.apache.spark:spark-core_2.11:2.0.2'
+    compile 'org.apache.spark:spark-streaming-kafka-0-8_2.11:2.0.2'
+    compile 'org.apache.spark:spark-streaming_2.11:2.0.2'
+    compile 'org.apache.spark:spark-sql_2.11:2.0.2'
     compile 'org.apache.kafka:kafka_2.11:0.8.2.2'
     compile 'org.scalactic:scalactic_2.11:3.0.0'
     compile 'org.scalatest:scalatest_2.11:3.0.0'
+    compile 'org.postgresql:postgresql:9.4-1201-jdbc41'
+    compile group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.7.4'
+    compile group: 'com.eclipsesource.minimal-json', name: 'minimal-json', version: '0.9.4'
+    compile 'org.apache.hadoop:hadoop-aws:2.7.1'
+    compile 'com.databricks:spark-redshift_2.11:2.0.1'
 }
-/*
+
+
 shadowJar {
     zip64 = true
     exclude 'LICENSE'
@@ -39,5 +61,3 @@ shadowJar {
                 'Main-Class': ''
     }
 }
-
-*/
